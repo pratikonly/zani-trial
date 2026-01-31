@@ -18,7 +18,7 @@ A modern, production-ready anime streaming website built with Next.js 15, React,
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Video Player**: HLS.js for adaptive streaming
-- **API**: GogoAnime API via anime-api-pratik
+- **API**: AniList GraphQL API (public)
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ cd zani
 npm install
 ```
 
-3. Create a `.env.local` file in the root directory:
+3. Create a `.env.local` file in the root directory (optional for streaming providers):
 ```env
 NEXT_PUBLIC_API_BASE_URL=https://anime-api-pratik.vercel.app
 ```
@@ -100,7 +100,7 @@ zani/
 
 ### Environment Variables
 
-Make sure to set the following environment variable in your Vercel project settings:
+Set the following environment variable if you plan to use the streaming provider:
 
 ```
 NEXT_PUBLIC_API_BASE_URL=https://anime-api-pratik.vercel.app
@@ -132,10 +132,11 @@ NEXT_PUBLIC_API_BASE_URL=https://anime-api-pratik.vercel.app
 
 ## API Endpoints Used
 
-- Search: `/anime/gogoanime/{query}`
-- Details: `/anime/gogoanime/info/{id}`
-- Watch: `/anime/gogoanime/watch/{episodeId}`
-- Trending: `/anime/gogoanime/top-airing` (fallback to search)
+- AniList GraphQL: `https://graphql.anilist.co`
+  - Search: `Page` media search by title
+  - Trending: `Page` media sorted by TRENDING_DESC
+  - Details: `Media` by AniList ID
+- Watch data: `/anime/gogoanime/watch/{episodeId}` (streaming provider)
 
 ## Browser Support
 
