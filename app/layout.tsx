@@ -19,8 +19,10 @@ export const metadata: Metadata = {
   description: "Watch your favorite anime series and movies online. Stream high-quality anime content with subtitles and dubs.",
   keywords: ["anime", "streaming", "watch anime", "anime online", "anime series"],
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/icon.svg',
   },
   openGraph: {
     title: "Zani - Stream Anime Online",
