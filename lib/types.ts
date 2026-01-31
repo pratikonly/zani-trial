@@ -28,6 +28,13 @@ export interface AnimeDetail {
   characters: CharacterSummary[];
 }
 
+export interface Episode {
+  episode_no: number;
+  id: string;
+  data_id: string;
+  title?: string;
+}
+
 export interface VideoSource {
   url: string;
   quality: string;
