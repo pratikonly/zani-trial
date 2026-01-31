@@ -25,14 +25,10 @@ export default function AnimeCard({ anime }: AnimeCardProps) {
           <h3 className="font-semibold text-white line-clamp-2 text-sm mb-1">
             {anime.title}
           </h3>
-          {anime.releaseDate && (
-            <p className="text-xs text-gray-400">{anime.releaseDate}</p>
-          )}
-          {anime.subOrDub && (
-            <span className="inline-block mt-2 px-2 py-1 text-xs rounded bg-purple-600/20 text-purple-300">
-              {anime.subOrDub}
-            </span>
-          )}
+          <p className="text-xs text-gray-400">
+            {anime.status}
+            {anime.averageScore ? ` • ${anime.averageScore}%` : ''}
+          </p>
         </div>
       </div>
     </Link>

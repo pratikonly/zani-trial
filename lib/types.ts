@@ -1,30 +1,31 @@
 export interface Anime {
-  id: string;
-  title: string;
-  image: string;
-  releaseDate?: string;
-  subOrDub?: string;
-  url?: string;
-}
-
-export interface AnimeDetail {
-  id: string;
+  id: number;
   title: string;
   image: string;
   description: string;
   status: string;
-  totalEpisodes: number;
+  episodes: number;
   genres: string[];
-  releaseDate?: string;
-  subOrDub?: string;
-  otherName?: string;
-  episodes?: Episode[];
+  averageScore?: number | null;
 }
 
-export interface Episode {
-  id: string;
-  number: number;
-  url?: string;
+export interface CharacterSummary {
+  name: string;
+  image: string;
+}
+
+export interface AnimeDetail {
+  id: number;
+  title: string;
+  image: string;
+  bannerImage?: string | null;
+  description: string;
+  status: string;
+  episodes: number;
+  genres: string[];
+  averageScore?: number | null;
+  studios: string[];
+  characters: CharacterSummary[];
 }
 
 export interface VideoSource {

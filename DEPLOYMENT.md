@@ -19,7 +19,7 @@ This guide will help you deploy the Zani anime streaming website to Vercel.
    - Import your GitHub repository
    - Vercel will auto-detect Next.js
 
-3. **Configure Environment Variables**
+3. **Configure Environment Variables** (optional for streaming provider)
    - In the Vercel project settings, add:
    ```
    NEXT_PUBLIC_API_BASE_URL=https://anime-api-pratik.vercel.app
@@ -60,11 +60,11 @@ This guide will help you deploy the Zani anime streaming website to Vercel.
 
 ## Environment Variables
 
-Make sure to set these in your Vercel project:
+Set this if you plan to use the streaming provider:
 
 | Variable | Value | Description |
 |----------|-------|-------------|
-| `NEXT_PUBLIC_API_BASE_URL` | `https://anime-api-pratik.vercel.app` | API endpoint for anime data |
+| `NEXT_PUBLIC_API_BASE_URL` | `https://anime-api-pratik.vercel.app` | API endpoint for streaming data |
 
 ## Build Configuration
 
@@ -114,8 +114,8 @@ After deployment, monitor your site:
 
 ### API Errors
 
-- Verify `NEXT_PUBLIC_API_BASE_URL` is set correctly
-- Check if the anime API is accessible
+- Verify `NEXT_PUBLIC_API_BASE_URL` is set correctly for streaming data
+- Check if the streaming provider API is accessible
 - Review browser console for CORS errors
 
 ### Images Not Loading
