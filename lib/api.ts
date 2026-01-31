@@ -197,16 +197,32 @@ export async function getAnimeDetails(id: number): Promise<AnimeDetail | null> {
   }
 }
 
-export async function getWatchData(episodeId: string): Promise<WatchData | null> {
+export async function getEpisodes(animeId: string): Promise<Episode[]> {
   try {
-    const response = await fetch(`${API_BASE}/anime/gogoanime/watch/${encodeURIComponent(episodeId)}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch watch data');
-    }
+    const response = await fetch(`${API_BASE}/episodes/${animeId}`);
+    if (!response.ok) throw new Error('Failed to fetch episodes');
+    const data = await response.json();
+    return data.results?.episodes || [];
+  } catch (error) {
+    console.error('Episodes error:', error);
+    return [];
+  }
+}
+
+export async function getEpisodeStream(episodeId: string): Promise<WatchData | null> {
+  try {
+    // Try the updated endpoint
+    const response = await fetch(`${API_BASE}/watch/${encodeURIComponent(episodeId)}`);
+    if (!response.ok) throw new Error('Failed to fetch stream');
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Watch data error:', error);
+    console.error('Stream error:', error);
     return null;
   }
+}
+
+// Deprecated: Use getEpisodeStream instead
+export async function getWatchData(episodeId: string): Promise<WatchData | null> {
+  return getEpisodeStream(episodeId);
 }
